@@ -1,18 +1,25 @@
 // FUNDAMENTALS MODULE SOURCE
 #define _CRT_SECURE_NO_WARNINGS
 #define BUFFER_SIZE 80
-#include"fundamentals.h"
-// V2
+#define NUM_INPUT_SIZE 10
+#include "fundamentals.h"
+
 void fundamentals(void) {
-    printf("**** Start of Measuring Strings Demo ****\n");
-    char buffer2[BUFFER_SIZE];
+
+    // V3
+    printf("**** Start of Copying Strings Demo ****\n");
+    char destination[BUFFER_SIZE];
+    char source[BUFFER_SIZE];
     do {
-        printf("Type a string (q - to quit):\n");
-        fgets(buffer2, BUFFER_SIZE, stdin);
-        buffer2[strlen(buffer2) - 1] = '\0';
-        if (strcmp(buffer2, "q") != 0) {
-            printf("The length of '%s' is %d characters\n", buffer2, (int)strlen(buffer2));
+        destination[0] = '\0';
+        printf("Destination string is reset to empty\n");
+        printf("Type the source string (q - to quit):\n");
+        fgets(source, BUFFER_SIZE, stdin);
+        source[strlen(source) - 1] = '\0';
+        if (strcmp(source, "q") != 0) {
+            strcpy(destination, source);
+            printf("New destination string is '%s'\n", destination);
         }
-    } while (strcmp(buffer2, "q") != 0);
-    printf("**** End of Measuring Strings Demo ****\n");
+    } while (strcmp(source, "q") != 0);
+    printf("**** End of Copying Strings Demo ****\n");
 }
